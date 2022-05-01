@@ -54,12 +54,12 @@ if __name__ == '__main__':
 The goal of this function is to read `cars.json` and return dictionary containing each vehicle. As we see below using just `json.loads()` returns each vehicle as a dictionary, what would be more helpful for interaction with the api is for vehicle to be identified individually. The functions at the end of the notes do just this; one using list comprehension and the other using traditional for loop style.
 
 Create a variable type string ‘cars’ from contents of cars.json - contents are string
-```
+```python
 With open(‘cars.json’) as f:
 	cars = f.read()
 ```
 Create a  variable type list ‘cars’ from contents of cars.json - contents of list are dictionaries. This is cool... but we don't really have an easy way to identify each vehicle
-```
+```python
 With open(‘cars.json’) as f:
 	cars = json.loads(f.read())
 
@@ -73,7 +73,7 @@ With open(‘cars.json’) as f:
 The following functions perform the same action for the purpose of establishing an identifier key value for each vehicle definition: iterate over cars and return a new dictionary object containing each car (dict) with key value represented by the car id
 
 `car_dict = {car["id"]: car for car in cars}`
-```
+```python
 def test(car_dict):
     new_car_dict = {}
     for i in car_dict:
