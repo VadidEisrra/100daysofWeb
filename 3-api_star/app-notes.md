@@ -1,4 +1,4 @@
-## Notes for plant app
+## Building the API
 
 Generate JSON data set from https://www.mockaroo.com or https://www.kaggle.com/
 
