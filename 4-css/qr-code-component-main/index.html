@@ -9,17 +9,34 @@
   <title>QR code component</title>
 
   <style>
+body {
+  background: #f06d06;
+}
+main {
+  height: 400px;
+  position: relative;
+  background: white;
+  margin: 200px 20px;
+  padding: 10px;
+}
+img {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
   </style>
 
 </head>
 
 <body>
-  <div>
-    <img src="./images/image-qr-code.png" alt="qr-code" width="350" height="350">
-    Improve your front-end skills by building projects
-  
-    Scan the QR code to visit Frontend Mentor and take your coding skills to the next level
-  </div>
+  <main>
+    <div>
+       <img src="./images/image-qr-code.png" alt="qr-code" width=350px height=350px>
+   </div>
+  </main>
 </body>
 
 </html>
