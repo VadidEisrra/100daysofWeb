@@ -5,30 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   
   <title>QR code component</title>
 
   <style>
-body {
-  background: #f06d06;
-}
-main {
-  height: 500px;
-  width: 500px;
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  background: white;
-  margin: auto;
-  padding: 5px;
-}
-img {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
+    body {
+      background: hsl(212, 45%, 89%);
+     font-family: "Outfit", sans-serif;
+    }
+    main {
+      margin: auto;
+      width: 350px;
+      height: 540px;
+      background: white;
+      box-shadow: 5px 5px 5px Grey ;
+      border-radius: 25px;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    img {
+      border-radius: 10px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 5%;
+    }
+    .main-text {
+      color: hsl(218, 44%, 22%);
+      margin-top: 9%;
+      margin-left: 5%;
+      margin-right: 5%;
+      font-weight: 700;
+      text-align: center;
+      font-size: 25px;
+    }
+    .sub-text {
+    color: hsl(220, 15%, 55%); 
+    margin-top: -2.5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    }
   </style>
 
 </head>
@@ -36,7 +60,13 @@ img {
 <body>
   <main>
     <div>
-       <img src="./images/image-qr-code.png" alt="qr-code" width=350px height=350px>
+       <img src="./images/image-qr-code.png" alt="qr-code" width=315px height=315px>
+   </div>
+   <div class="main-text">
+     <p>Improve your front-end skills by building projects</p>
+   </div>
+   <div class="sub-text">
+     <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
    </div>
   </main>
 </body>
