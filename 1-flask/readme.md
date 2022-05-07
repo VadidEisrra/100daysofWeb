@@ -103,8 +103,8 @@ Then we will create a `templates` folder with a new `index.html` template
 ├── program
         ├── __init__.py
         ├── routes.py
-└── templates
-        └── index.html
+        └── templates
+            └── index.html
 ~~~
 `index.html`
 ~~~html
