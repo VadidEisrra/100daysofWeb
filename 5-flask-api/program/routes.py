@@ -23,6 +23,11 @@ def chuck():
     return render_template('chuck.html', joke=joke)
 
 
+@app.route('/pokemon')
+def pokemon():
+    return render_template('pokemon.html')
+
+
 def get_chuck_joke():
     r = requests.get('https://api.chucknorris.io/jokes/random')
     data = r.json()
