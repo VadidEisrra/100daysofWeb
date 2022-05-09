@@ -9,13 +9,8 @@ from datetime import datetime
 @app.route('/')
 @app.route('/index')
 def index():
-    timenow = str(datetime.today())
+    timenow = datetime.utcnow().strftime("%A %B %d, %Y - %H:%M:%S UTC")
     return render_template('index.html', time=timenow)
-
-
-@app.route('/100Days')
-def p100days():
-    return render_template('100Days.html')
 
 
 @app.route('/chuck')
