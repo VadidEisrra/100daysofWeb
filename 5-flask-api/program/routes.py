@@ -6,11 +6,19 @@ from flask import render_template
 from datetime import datetime
 
 
+def get_apod():
+    r = requests.get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+    data = r.json()
+    return data
+
+apod = get_apod()
+
+
 @app.route('/')
 @app.route('/index')
 def index():
     timenow = datetime.utcnow().strftime("%A %B %d, %Y - %H:%M:%S UTC")
-    return render_template('index.html', time=timenow)
+    return render_template('index.html', time=timenow, apod=apod)
 
 
 @app.route('/chuck')

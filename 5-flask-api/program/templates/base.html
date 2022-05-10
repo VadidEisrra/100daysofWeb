@@ -4,12 +4,15 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>S I T E</title>
+      <style>
+        body { font-family: 'Courier New', monospace; }
+      </style>
     </head>
     <body>
-        <div>
-            <a href="/index" style="text-decoration:none">Home</a>
-       <div>
-       <hr>
-        {% block content %}{% endblock %}
+      <div>
+        <a href="/index" style="text-decoration:none">Home</a>
+      </div>
+      <hr>
+      {% block content %}{% endblock %}
     </body>
 </html>
