@@ -4,14 +4,12 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>S I T E</title>
-      <style>
-        body { font-family: 'Courier New', monospace; }
-      </style>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
       <div>
-        <a href="/index" style="text-decoration:none">Home</a>
-        <a href="/solar" style="text-decoration:none">Explorer</a>
+        <a href="/index">Home</a>
+        <a href="/solar">Explorer</a>
       </div>
       <hr>
       {% block content %}{% endblock %}
