@@ -21,30 +21,21 @@ def index():
     return render_template('index.html', time=timenow, apod=apod)
 
 
-@app.route('/chuck')
-def chuck():
-    joke = get_chuck_joke()
-    return render_template('chuck.html', joke=joke)
+@app.route('/solar', methods=['GET', 'POST'])
+def solarSystem():
+    bodies = []
+    if request.method == 'POST' and 'bodytype' in request.form:
+        solar_bodytype = request.form.get('bodytype')
+        bodies = get_solar_data(solar_bodytype)
+    return render_template('solar.html', bodies=bodies)
 
 
-@app.route('/pokemon', methods=['GET', 'POST'])
-def pokemon():
-    pokemon = []
-    if request.method == 'POST' and 'pokecolour' in request.form:
-        color = request.form.get('pokecolour')
-        pokemon = get_pokemon_color(color)
-    return render_template('pokemon.html', pokemon=pokemon)
-
-
-def get_chuck_joke():
-    r = requests.get('https://api.chucknorris.io/jokes/random')
-    data = r.json()
-    return data['value']
-
-
-def get_pokemon_color(color):
-    url = f"https://pokeapi.co/api/v2/pokemon-color/{color.lower()}"
+def get_solar_data(solar_bodytype):
+    url = f"https://api.le-systeme-solaire.net/rest/bodies/?filter=bodyType,eq,{solar_bodytype.lower()}"
     r = requests.get(url)
-    pokedata = r.json()
-    pokemon = [i['name'] for i in pokedata['pokemon_species']]
-    return pokemon
+    bodydata = r.json()
+    bodies = []
+    for l in bodydata.values():
+        for d in l:
+            bodies.append(d.get("englishName"))
+    return bodies

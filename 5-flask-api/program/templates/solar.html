@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Solar search</h1>
+    <h3>Enter a body type to explore our Solar System!</h3>
+    <p>Eg: Star, Planet, Dwarf Planet, Asteroid, Comet or Moon</p>
+    <div>
+    <form method ="POST" action"/solar">
+      <label for=bodytype">Solar Body Type</label>
+      <input type="text" id="bodytype" name="bodytype">
+     <br>
+      <button type="submit" value="Submit">Submit</button>
+    </form>
+    </div>
+<br>
+<br>
+    <div>
+    {% if bodies %}
+    <table>
+      <thead>
+        <tr>
+          <th>Solar Bodies</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for i in bodies %}
+          <tr>
+          <td>{{ i }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+    </div>
+    {% endblock %}
