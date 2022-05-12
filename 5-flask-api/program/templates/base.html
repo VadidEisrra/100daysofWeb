@@ -7,10 +7,10 @@
       <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
-      <div>
+      <nav>
         <a href="/index">Home</a>
         <a href="/solar">Explorer</a>
-      </div>
+      </nav>
       <hr>
       {% block content %}{% endblock %}
     </body>

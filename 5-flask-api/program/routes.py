@@ -24,10 +24,12 @@ def index():
 @app.route('/solar', methods=['GET', 'POST'])
 def solarSystem():
     bodies = []
+    solar_bodytype = ""
     if request.method == 'POST' and 'bodytype' in request.form:
         solar_bodytype = request.form.get('bodytype')
         bodies = get_solar_data(solar_bodytype)
-    return render_template('solar.html', bodies=bodies)
+    return render_template('solar.html', bodies=bodies,
+                            solar_bodytype=solar_bodytype.capitalize())
 
 
 def get_solar_data(solar_bodytype):
