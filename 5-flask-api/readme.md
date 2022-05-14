@@ -1,4 +1,4 @@
-# Ch5 - Calling APIs in Flask
+# Calling APIs in Flask
 
 This project uses flask to present information from the NASA APOD and The Solar System OpenDATA APIs
 ## Overview

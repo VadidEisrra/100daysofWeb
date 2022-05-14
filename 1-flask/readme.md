@@ -1,4 +1,4 @@
-# Chapter 2. Flask Intro
+# Flask Intro
 
 ### 1. Install and Setup Flask
 
