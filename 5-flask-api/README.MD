@@ -5,8 +5,8 @@ This project uses flask to present information from the NASA APOD and The Solar 
 
 ### Screenshot
 
-![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/6-flask-apis-1.png)
-![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/6-flask-apis-2.png)
+![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/5-flask-api-index.png)
+![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/5-flask-api-explore.png)
 
 ## My process
 
