@@ -26,7 +26,7 @@ async def get_solar_data(solar_bodytype):
     for l in data.values():
         for d in l:
             bodies.append(d.get("englishName"))
-    return data
+    return bodies
 
 
 apod = asyncio.run(get_apod())
