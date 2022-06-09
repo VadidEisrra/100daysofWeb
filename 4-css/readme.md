@@ -6,7 +6,7 @@ Instead of following the assignment in the course I deviated and wanted to try s
 
 ### Screenshot
 
-![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/5-css.png)
+![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/4-css.png)
 
 ## My process
 
