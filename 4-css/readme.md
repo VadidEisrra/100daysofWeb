@@ -1,4 +1,4 @@
-# Ch4 CSS - QR code component 
+# CSS - QR code component 
 
 Instead of following the assignment in the course I deviated and wanted to try something different. I found a really interesting site dedicated to learning front-end, and really cool beginner project using html + css. This is my solution to the [QR code component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H). It's not an exact spec (and that's ok with me) all the bits are there and I think it's pretty cool :D
 

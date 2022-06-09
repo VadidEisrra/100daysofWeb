@@ -1,4 +1,4 @@
-## Building APIs with API Star (0.5.4.1)
+# Building APIs with API Star (0.5.4.1)
 
 **Important**: `apistar` version `0.5.41` let you build complete APIs. 
 
