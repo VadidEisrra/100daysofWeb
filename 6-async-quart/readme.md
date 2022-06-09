@@ -112,7 +112,7 @@ async def get_apod():
             data = await resp.json() #step three
     return data
 ```
-- `async with aiohttp.CientSession()` does not perform I/O when entering the block - but ensures all remaining resources are closed correctly at the end. The session object manages a pool of connections you can reuse instead of opening and closing a new one at each request.
+- `async with aiohttp.CientSession()` does not perform I/O when entering the block - but ensures all remaining resources are closed correctly at the end. The session object manages a pool of connections you can reuse instead of opening and closing a new one at each request
 - `async with session.get()` sends a GET request to the URL, which is asynchronous operation marked with an `async with` so it is non-blocking and cleanly finalized
 - Loading the JSON response after the request is our second asynchronous operation noted by the `await` keyword
 
