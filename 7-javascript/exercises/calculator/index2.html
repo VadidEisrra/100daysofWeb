@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Schmalculator</title>
+</head>
+<body>
+  <main style="margin:auto;width:900px">
+    <div>
+      <h1>Basic JS Calculator</h1>
+    </div>
+    <div style="border: 2px solid grey;padding: 10px;margin: 5px;">
+      <form id="form" onsubmit="return false;">
+        <input id="numOne" type="text" size="15" style="margin: 5px;">
+        <select id="operator">
+          <option value="+" selected>+</option>
+          <option value="-" selected>-</option>
+          <option value="/" selected>/</option>
+          <option value="*" selected>*</option>
+          </select>
+        <input id="numTwo" type="text" size="15" style="margin-left: 10px;"> 
+        <button type="submit">Calculate</button>
+      </form>
+      </div>
+      <div style="border: 2px solid grey;padding: 10px;margin: 5px;">
+      <h1 id="displayResult"></h1>
+      </div>
+      <script>
+      const element = document.getElementById("form");
+      element.addEventListener("submit", display);
+      function calculateOrDie(){
+        let a = +document.getElementById('numOne').value;
+        let b = +document.getElementById('numTwo').value;
+        let op = document.getElementById('operator').value;
+        let result = 0;
+        if (op == "+"){
+          result += a+b;
+        }
+        if (op == "-"){
+          result += a-b;
+        }
+        if (op == "/"){
+          result += a/b;
+        }
+        if (op == "*"){
+          result += a*b;
+        }
+        return result
+      }
+      function display(){
+        document.getElementById("displayResult").innerHTML = calculateOrDie();
+      }
+      </script>
+  </main>
+  </body>
+</html>

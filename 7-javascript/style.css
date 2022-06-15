@@ -1,0 +1,81 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: hsl(185, 41%, 84%);
+  font-family: 'Space Mono', monospace;
+}
+
+article {
+  width: 425px;
+  height: 415px;
+  background: white;
+  padding: 12px;
+  border-radius: 25px;
+}
+
+input {
+  font-size: 24px;
+  font-family: 'Space Mono', monospace;
+  border: none;
+  text-align: right;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  height: 48px;
+  outline: none;
+}
+
+input:focus {
+  border: 2.5px solid #26c0ab;
+}
+
+button {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  width: 120px;
+  height: 49px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Space Mono', monospace;
+}
+
+.title {
+  color: hsl(186, 14%, 43%);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 700;
+  font-style: bold;
+  margin-bottom: 6px;
+}
+
+#tip-title{
+  margin-bottom: 16px;
+}
+#tip-selector {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: min(95%, 70rem);
+} 
+#custom_tip {
+  text-align: right;
+  width: 120px;
+  height: 50px;
+}
+
+#custom_tip::placeholder {
+  text-align: center;
+}
