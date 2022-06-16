@@ -9,46 +9,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Frontend Mentor | Tip calculator app</title>
-
 </head>
 <body>
-<main>
-<article>
-  <div id="calculator" class="box">
-  <form class="form">
-  <p class="title">Bill</p>
-  <input id="Bill" type="text" placeholder="0" size=24>
-  </form>
-  </div>
-  <p class="title" id="tip-title">Select Tip %</p>
-  <div id="tip-selector">
-  <button type="submit">5%</button>
-  <button type="submit">10%</button>
-  <button type="submit">15%</button>
-  <button type="submit">25%</button>
-  <button type="submit">50%</button>
-  <input id="custom_tip" type="text" placeholder="Custom"> 
-  </div>
-  <form class="form">
-  <p class="title">Number of People</p>
-  <input id="People"type="text" placeholder="0" size=24>
-  </form>
-  </div>
-<!-- <div id="display" class = "box">
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  </div>
- </center>
- </article> 
-  <div>
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">VadidEisrra</a>.
-  </div> -->
-</main>
-</body>
+  <main>
+    <article id="calculator">
+      <div>
+        <form class="form">
+        <p class="title">Bill</p>
+        <input id="Bill" type="text" placeholder="0" size=24>
+        </form>
+      </div>
+      <p class="title" id="tip-title">Select Tip %</p>
+      <div id="tip-selector">
+        <button type="submit">5%</button>
+        <button type="submit">10%</button>
+        <button type="submit">15%</button>
+        <button type="submit">25%</button>
+        <button type="submit">50%</button>
+      <input id="custom_tip" type="text" placeholder="Custom"> 
+      </div>
+      <form class="form">
+      <p class="title">Number of People</p>
+      <input id="People"type="text" placeholder="0" size=24>
+      </form>
+      </div>
+    </article>
+    <article>
+      <div id="display">
+      <p class="displayTitle">Tip Amount</p>
+      <h1>$0.00</h1>
+      <p class="displayTitle">Total</p>
+      <h1>$0.00</h1>
+      <button>reset</button>
+      </div>
+    </article> 
+    <div>
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">VadidEisrra</a>.
+    </div>
+  </main>
+  </body>
 </html>

@@ -9,17 +9,15 @@ html {
   box-sizing: inherit;
 }
 
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(95%, 70rem);
+}
+
 body {
   background: hsl(185, 41%, 84%);
   font-family: 'Space Mono', monospace;
-}
-
-article {
-  width: 425px;
-  height: 415px;
-  background: white;
-  padding: 12px;
-  border-radius: 25px;
 }
 
 input {
@@ -61,15 +59,50 @@ button {
   margin-bottom: 6px;
 }
 
+.displayTitle {
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 700;
+  font-style: bold;
+  margin-bottom: 6px;
+  
+}
+
+#display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  width: min(95%, 70rem);
+}
+
+#calculator {
+  width: 425px;
+  height: 415px;
+  background: white;
+  padding: 12px;
+  border-radius: 25px;
+}
+
+#display {
+  width: 425px;
+  height: 415px;
+  background: hsl(183, 100%, 15%);
+  padding: 12px;
+  border-radius: 25px;
+}
+
 #tip-title{
   margin-bottom: 16px;
 }
+
 #tip-selector {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
   width: min(95%, 70rem);
 } 
+
 #custom_tip {
   text-align: right;
   width: 120px;
