@@ -69,25 +69,10 @@ button {
   
 }
 
-#display {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px;
-  width: min(95%, 70rem);
-}
-
 #calculator {
   width: 425px;
   height: 415px;
   background: white;
-  padding: 12px;
-  border-radius: 25px;
-}
-
-#display {
-  width: 425px;
-  height: 415px;
-  background: hsl(183, 100%, 15%);
   padding: 12px;
   border-radius: 25px;
 }
@@ -111,4 +96,31 @@ button {
 
 #custom_tip::placeholder {
   text-align: center;
+}
+
+#display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px;
+  width: min(95%, 70rem);
+}
+
+#displayResult {
+  width: 425px;
+  height: 415px;
+  background: hsl(183, 100%, 15%);
+  padding: 12px;
+  border-radius: 25px;
+}
+
+#reset{
+  text-align: center;
+}
+
+
+#resetButton{
+  margin-top: 115px;
+  width: 350px; 
+  color: hsl(183, 100%, 15%); 
+  background: hsl(172, 67%, 45%);
 }
