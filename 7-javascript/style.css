@@ -98,29 +98,25 @@ button {
   text-align: center;
 }
 
-#display {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 100px 100px;
-  width: min(95%, 70rem);
-}
-
 #displayResult {
   width: 425px;
-  height: 415px;
+  height: 425px;
   background: hsl(183, 100%, 15%);
-  padding: 12px;
   border-radius: 25px;
+  position: relative;
 }
 
-#reset{
+#displayBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 330px;
+  width: 330px;
+}
+
+#totalText,#totalNumber {
+  display:inline-block;
+  width: 48%;
   text-align: center;
-}
-
-
-#resetButton{
-  margin-top: 115px;
-  width: 350px; 
-  color: hsl(183, 100%, 15%); 
-  background: hsl(172, 67%, 45%);
 }
