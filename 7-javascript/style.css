@@ -10,9 +10,11 @@ html {
 }
 
 main{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: min(95%, 70rem);
+  width: 970px;
+  height: 490px;
+  background-color: white;
+  position:relative;
+  border-radius: 35px;
 }
 
 body {
@@ -80,6 +82,21 @@ button {
   font-style: bold;
   
 }
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  justify-content: space-evenly;
+  justify-items: center;
+  align-content: space-evenly;
+  align-items: center;
+  width: 950px;
+}
+
 #calculator {
   width: 425px;
   height: 425px;
