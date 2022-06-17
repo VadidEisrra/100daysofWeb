@@ -13,37 +13,53 @@
 <body>
   <main>
     <article id="calculator">
-      <div>
-        <form class="form">
-        <p class="title">Bill</p>
-        <input id="Bill" type="text" placeholder="0" size=24>
-        </form>
-      </div>
-      <p class="title" id="tip-title">Select Tip %</p>
-      <div id="tip-selector">
-        <button type="submit">5%</button>
-        <button type="submit">10%</button>
-        <button type="submit">15%</button>
-        <button type="submit">25%</button>
-        <button type="submit">50%</button>
-      <input id="custom_tip" type="text" placeholder="Custom"> 
-      </div>
-      <form class="form">
-      <p class="title">Number of People</p>
-      <input id="People"type="text" placeholder="0" size=24>
-      </form>
+      <div id="calcBox">
+        <div id="inputAmount">
+          <form class="form">
+          <p class="title">Bill</p>
+          <input id="billAmount" type="text" placeholder="0">
+          </form>
+        </div>
+        <div id="tipAmount">
+          <p class="title" id="tip-title">Select Tip %</p>
+          <div id="selectTip">
+            <button type="submit">5%</button>
+            <button type="submit">10%</button>
+            <button type="submit">15%</button>
+            <button type="submit">25%</button>
+            <button type="submit">50%</button>
+            <input id="custom_tip" type="text" placeholder="Custom"> 
+          </div>
+        </div>
+        <div id="amountPersons">
+          <form class="form">
+            <p class="title">Number of People</p>
+            <input id="numPeople"type="text" placeholder="0">
+          </form>
+        </div>
       </div>
     </article>
     <article id="displayResult">
       <div id="displayBox">
-        <div id="displayTotal">
-          <div id="totalText">
-            <p>Tip Amount</p>
-            <p>/ person</p>
+        <div id="displayTotalTip">
+          <div  id="totalText">
+            <p class="displayTitle">Tip Amount</p>
+            <p class="subtitle">/ person</p>
           </div>
           <div id="totalNumber">
             <h1>$0.00</h1>
           </div>
+        </div>
+        <div id="displayTotalBill">
+          <div id="totalText">
+            <p class="displayTitle">Total</p>
+            <p class="subtitle">/ person</p>
+          </div>
+          <div id="totalNumber">
+            <h1>$0.00</h1>
+          </div>
+        <div id="reset">
+          <button id="resetButton">RESET</button>
         </div>
       </div>
     </article> 

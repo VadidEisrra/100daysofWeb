@@ -32,6 +32,7 @@ input {
   margin-bottom: 40px;
   height: 48px;
   outline: none;
+  width: 100%;
 }
 
 input:focus {
@@ -62,30 +63,45 @@ button {
 .displayTitle {
   color: hsl(0, 0%, 100%);
   font-size: 16px;
-  text-align: left;
   font-weight: 700;
   font-style: bold;
-  margin-bottom: 6px;
   
 }
 
+.subtitle{
+  color: hsl(186, 14%, 43%);
+  font-size: 14px;
+  font-weight: 700;
+  font-style: bold;
+  
+}
 #calculator {
   width: 425px;
-  height: 415px;
+  height: 425px;
   background: white;
   padding: 12px;
   border-radius: 25px;
+  position: relative;
+}
+
+#calcBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 400px;
+  width: 400px;
 }
 
 #tip-title{
   margin-bottom: 16px;
 }
 
-#tip-selector {
+#selectTip {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
-  width: min(95%, 70rem);
+  width: 100%;
 } 
 
 #custom_tip {
@@ -116,7 +132,35 @@ button {
 }
 
 #totalText,#totalNumber {
-  display:inline-block;
+  color: hsl(172, 67%, 45%); 
+  display: inline-block;
   width: 48%;
-  text-align: center;
+}
+
+#totalText {
+  text-align: left;
+}
+
+#totalNumber {
+  text-align: right;
+  font-size: 36px;
+}
+
+#displayTotalTip {
+  margin-top: 0px;
+}
+
+#displayTotalBill {
+  margin-top: 20px;
+}
+
+#reset {
+  text-align:center;
+}
+
+#resetButton {
+  margin-top: 100px;
+  width: 100%; 
+  color: hsl(183, 100%, 15%); 
+  background: hsl(172, 67%, 45%); 
 }
