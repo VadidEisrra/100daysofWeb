@@ -9,17 +9,15 @@ html {
   box-sizing: inherit;
 }
 
-main{
-  width: 970px;
-  height: 490px;
-  background-color: white;
-  position:relative;
-  border-radius: 35px;
-}
-
 body {
   background: hsl(185, 41%, 84%);
   font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+  padding: 100px;
 }
 
 input {
@@ -53,6 +51,16 @@ button {
   font-family: 'Space Mono', monospace;
 }
 
+button:hover {
+  background-color: hsla(172, 100%, 79%, 1);
+  color: hsl(183, 100%, 15%);
+}
+
+button:focus {
+  background: hsl(172, 67%, 45%); 
+  color: hsl(183, 100%, 15%);
+}
+
 .title {
   color: hsl(186, 14%, 43%);
   font-size: 16px;
@@ -81,6 +89,15 @@ button {
   font-weight: 700;
   font-style: bold;
   
+}
+
+#userInterface {
+  width: 970px;
+  height: 490px;
+  background-color: white;
+  position:relative;
+  border-radius: 35px;
+  box-shadow: 0px 10px 20px grey;
 }
 
 #container {
@@ -184,5 +201,15 @@ button {
   margin-top: 100px;
   width: 100%; 
   color: hsl(183, 100%, 15%); 
-  background: hsl(172, 67%, 45%); 
+  background-color: hsl(172, 67%, 45%); 
+}
+
+#resetButton:hover {
+  background-color: hsla(172, 100%, 79%, 1);
+  color: hsl(183, 100%, 15%);
+}
+
+#resetButton:focus {
+  background-color: hsl(172, 67%, 45%); 
+  color: hsl(183, 100%, 15%);
 }

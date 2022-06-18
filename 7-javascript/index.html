@@ -12,60 +12,62 @@
 </head>
 <body>
   <main>
-    <div id="container">
-      <article id="calculator">
-        <div id="calcBox">
-          <div id="inputAmount">
-            <form class="form">
-            <p class="title">Bill</p>
-            <span class="icon"><img src="images/icon-dollar.svg"></span>
-            <input id="billAmount" type="text" placeholder="0">
-            </form>
-          </div>
-          <div id="tipAmount">
-            <p class="title" id="tipTitle">Select Tip %</p>
-            <div id="selectTip">
-              <button type="submit">5%</button>
-              <button type="submit">10%</button>
-              <button type="submit">15%</button>
-              <button type="submit">25%</button>
-              <button type="submit">50%</button>
-              <input id="custom_tip" type="text" placeholder="Custom"> 
+    <div id="userInterface">
+      <div id="container">
+        <article id="calculator">
+          <div id="calcBox">
+            <div id="inputAmount">
+              <form class="form">
+              <p class="title">Bill</p>
+              <span class="icon"><img src="images/icon-dollar.svg"></span>
+              <input id="billAmount" type="text" placeholder="0">
+              </form>
+            </div>
+            <div id="tipAmount">
+              <p class="title" id="tipTitle">Select Tip %</p>
+              <div id="selectTip">
+                <button type="submit">5%</button>
+                <button type="submit">10%</button>
+                <button type="submit">15%</button>
+                <button type="submit">25%</button>
+                <button type="submit">50%</button>
+                <input id="custom_tip" type="text" placeholder="Custom"> 
+              </div>
+            </div>
+            <div id="amountPersons">
+              <form class="form">
+                <p class="title">Number of People</p>
+                <span class="icon"><img src="images/icon-person.svg"></span>
+                <input id="numPeople"type="text" placeholder="0">
+              </form>
             </div>
           </div>
-          <div id="amountPersons">
-            <form class="form">
-              <p class="title">Number of People</p>
-              <span class="icon"><img src="images/icon-person.svg"></span>
-              <input id="numPeople"type="text" placeholder="0">
-            </form>
+        </article>
+        <article id="displayResult">
+          <div id="displayBox">
+            <div id="displayTotalTip">
+              <div  id="totalText">
+                <p class="displayTitle">Tip Amount</p>
+                <p class="subtitle">/ person</p>
+              </div>
+              <div id="totalNumber">
+                <h1>$0.00</h1>
+              </div>
+            </div>
+            <div id="displayTotalBill">
+              <div id="totalText">
+                <p class="displayTitle">Total</p>
+                <p class="subtitle">/ person</p>
+              </div>
+              <div id="totalNumber">
+                <h1>$0.00</h1>
+              </div>
+            <div id="reset">
+              <button id="resetButton">RESET</button>
+            </div>
           </div>
-        </div>
-      </article>
-      <article id="displayResult">
-        <div id="displayBox">
-          <div id="displayTotalTip">
-            <div  id="totalText">
-              <p class="displayTitle">Tip Amount</p>
-              <p class="subtitle">/ person</p>
-            </div>
-            <div id="totalNumber">
-              <h1>$0.00</h1>
-            </div>
-          </div>
-          <div id="displayTotalBill">
-            <div id="totalText">
-              <p class="displayTitle">Total</p>
-              <p class="subtitle">/ person</p>
-            </div>
-            <div id="totalNumber">
-              <h1>$0.00</h1>
-            </div>
-          <div id="reset">
-            <button id="resetButton">RESET</button>
-          </div>
-        </div>
-      </article> 
+        </article> 
+      </div>
     </div>
   </main>
 </body>
