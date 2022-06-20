@@ -43,7 +43,7 @@ button {
   color: white;
   font-size: 24px;
   font-weight: 700;
-  width: 120px;
+  width: 150px;
   height: 49px;
   border: none;
   border-radius: 5px;
@@ -67,6 +67,7 @@ button:focus {
   font-weight: 700;
   font-style: bold;
   margin-bottom: 6px;
+  margin-left: 10px; 	
 }
 
 .icon {
@@ -98,12 +99,12 @@ button:focus {
 }
 
 #userInterface {
-  width: 490px;
   height: 900px;
   margin: 0 auto;
   background-color: white;
   border-radius: 36px;
 }
+
 
 #container {
   display: grid;
@@ -114,33 +115,9 @@ button:focus {
   "displayResult";
 }
 
-@media screen and (min-width: 975px){
-  #container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-    justify-items: center;
-    width: 950px;
-    grid-template-areas:
-    "calculator displayResult";
-  }
-  #userInterface {
-    width: 970px;
-    height: 490px;
-    margin: 0 auto;
-    background-color: white;
-    position:relative;
-    border-radius: 35px;
-    box-shadow: 0px 20px 60px #5a9d9457;
-  }
-}
 
 #calculator {
   grid-area: calculator;
-  width: 425px;
   height: 425px;
   background: white;
   padding: 12px;
@@ -154,7 +131,6 @@ button:focus {
   top: 50%;
   transform: translate(-50%,-50%);
   height: 400px;
-  width: 400px;
 }
 
 #tipTitle{
@@ -164,7 +140,7 @@ button:focus {
 #selectTip {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
 } 
 
@@ -180,7 +156,6 @@ button:focus {
 
 #displayResult {
   grid-area: displayResult;
-  width: 425px;
   height: 425px;
   background: hsl(183, 100%, 15%);
   border-radius: 25px;
@@ -192,14 +167,18 @@ button:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  height: 330px;
-  width: 330px;
+  height: 350px;
+  width: 360px;
+  background: hsl(183, 100%, 15%);
+  border-radius: 10px;
 }
 
 #totalText,#totalNumber {
   color: hsl(172, 67%, 45%); 
   display: inline-block;
-  width: 48%;
+  width: 45%;
+  margin-left: 10px;
+  
 }
 
 #totalText {
@@ -239,3 +218,104 @@ button:focus {
   background-color: hsl(172, 67%, 45%); 
   color: hsl(183, 100%, 15%);
 }
+
+@media screen and (min-width: 425px){
+  .title {
+    color: hsl(186, 14%, 43%);
+    font-size: 16px;
+    text-align: left;
+    font-weight: 700;
+    font-style: bold;
+    margin-bottom: 6px;
+  }
+  button {
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    width: 120px;
+    height: 49px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Space Mono', monospace;
+  }
+  #selectTip {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  } 
+  #calcBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 400px;
+    width: 400px;
+  }
+  #calculator {
+    grid-area: calculator;
+    width: 425px;
+    height: 425px;
+    background: white;
+    padding: 12px;
+    border-radius: 25px;
+    position: relative;
+  }
+  #displayBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 330px;
+    width: 330px;
+  }
+  #totalText,#totalNumber {
+    color: hsl(172, 67%, 45%); 
+    display: inline-block;
+    width: 48%;
+  }
+  #displayResult {
+    grid-area: displayResult;
+    width: 425px;
+    height: 425px;
+    background: hsl(183, 100%, 15%);
+    border-radius: 25px;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 490px){
+   #userInterface {
+     width: 490px;
+     height: 900px;
+     margin: 0 auto;
+     background-color: white;
+     border-radius: 36px;
+   }
+}
+
+@media screen and (min-width: 975px){
+  #container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    justify-items: center;
+    width: 950px;
+    grid-template-areas:
+    "calculator displayResult";
+  }
+  #userInterface {
+    width: 970px;
+    height: 490px;
+    margin: 0 auto;
+    background-color: white;
+    position:relative;
+    border-radius: 35px;
+    box-shadow: 0px 20px 60px #5a9d9457;
+  }
+}
+
