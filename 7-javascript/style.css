@@ -94,8 +94,8 @@ button:focus {
 #logo {
   width: 87px;
   margin: auto;
-  padding-top: 150px;
-  padding-bottom: 100px;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 #userInterface {
@@ -146,7 +146,6 @@ button:focus {
 
 #custom_tip {
   text-align: right;
-  width: 120px;
   height: 50px;
 }
 
@@ -167,18 +166,18 @@ button:focus {
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  height: 350px;
-  width: 360px;
+  height: 275px;
+  width: 330px;
   background: hsl(183, 100%, 15%);
-  border-radius: 10px;
+  border-radius: 15px;
+  padding-left: 30px;
+  padding-right: 5px;
 }
 
 #totalText,#totalNumber {
   color: hsl(172, 67%, 45%); 
   display: inline-block;
   width: 45%;
-  margin-left: 10px;
-  
 }
 
 #totalText {
@@ -187,11 +186,11 @@ button:focus {
 
 #totalNumber {
   text-align: right;
-  font-size: 36px;
+  font-size: 22px;
 }
 
 #displayTotalTip {
-  margin-top: 0px;
+  margin-top: 45px;
 }
 
 #displayTotalBill {
@@ -203,8 +202,9 @@ button:focus {
 }
 
 #resetButton {
-  margin-top: 100px;
-  width: 100%; 
+  margin-right: 30px;
+  margin-top: 30px;
+  width: 92%; 
   color: hsl(183, 100%, 15%); 
   background-color: hsl(172, 67%, 45%); 
 }
@@ -270,10 +270,20 @@ button:focus {
     height: 330px;
     width: 330px;
   }
+  #totalText {
+    text-align: left;
+  }
+  #totalNumber {
+    text-align: right;
+    font-size: 36px;
+  }
   #totalText,#totalNumber {
     color: hsl(172, 67%, 45%); 
     display: inline-block;
     width: 48%;
+  }
+  #displayTotalTip {
+    margin-top: 0px;
   }
   #displayResult {
     grid-area: displayResult;
