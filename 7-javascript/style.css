@@ -99,12 +99,11 @@ button:focus {
 }
 
 #userInterface {
-  height: 900px;
+  height: 825px;
   margin: 0 auto;
   background-color: white;
-  border-radius: 36px;
+  border-radius: 26px 26px 10px 10px;
 }
-
 
 #container {
   display: grid;
@@ -239,6 +238,18 @@ button:focus {
     border-radius: 5px;
     font-family: 'Space Mono', monospace;
   }
+  #logo {
+    width: 87px;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  #userInterface {
+    height: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 36px;
+  }
   #selectTip {
     display: grid;
     gap: 1.5rem;
@@ -269,6 +280,7 @@ button:focus {
     transform: translate(-50%,-50%);
     height: 330px;
     width: 330px;
+    padding: unset;
   }
   #totalText {
     text-align: left;
@@ -293,6 +305,12 @@ button:focus {
     border-radius: 25px;
     position: relative;
   }
+  #resetButton {
+    margin-top: 90px;
+    width: 100%; 
+    color: hsl(183, 100%, 15%); 
+    background-color: hsl(172, 67%, 45%); 
+  }
 }
 
 @media screen and (min-width: 490px){
@@ -306,6 +324,12 @@ button:focus {
 }
 
 @media screen and (min-width: 975px){
+  #logo {
+    width: 87px;
+    margin: auto;
+    padding-top: 145px;
+    padding-bottom: 80px;
+  }
   #container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -328,4 +352,3 @@ button:focus {
     box-shadow: 0px 20px 60px #5a9d9457;
   }
 }
-
