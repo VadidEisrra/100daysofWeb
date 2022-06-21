@@ -206,6 +206,7 @@ button:focus {
   width: 92%; 
   color: hsl(183, 100%, 15%); 
   background-color: hsl(172, 67%, 45%); 
+  opacity: 0.2;
 }
 
 #resetButton:hover {
@@ -306,6 +307,7 @@ button:focus {
     position: relative;
   }
   #resetButton {
+    margin-right: unset;
     margin-top: 90px;
     width: 100%; 
     color: hsl(183, 100%, 15%); 
