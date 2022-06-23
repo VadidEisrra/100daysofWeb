@@ -54,7 +54,7 @@
                 <p class="subtitle">/ person</p>
               </div>
               <div id="totalNumber">
-                <h1>$0.00</h1>
+                <h1 id="totalTip">$0.00</h1>
               </div>
             </div>
             <div id="displayTotalBill">
@@ -63,7 +63,7 @@
                 <p class="subtitle">/ person</p>
               </div>
               <div id="totalNumber">
-                <h1>$0.00</h1>
+                <h1 id="totalPerson">$0.00</h1>
               </div>
             </div>
             <div id="reset">
@@ -73,6 +73,21 @@
         </article> 
       </div>
     </div>
+    <script>
+    window.onload = function() {
+      let billTotal = document.getElementById("billAmount");
+      let numPerson = +document.getElementById("numPeople").value;
+      let tipPer = +document.getElementById("totalTip").value;
+      let totalPer = +document.getElementById("totalPerson").value;
+      billTotal.addEventListener("input", function() {
+        let str = '$' + billTotal.value;
+        if (numPerson.value == '') numPerson = 0;
+        let result = parseInt(billTotal.value) / numPerson;
+        tipPer.textContent = result;
+        totalPer.textContent = str;
+      });
+    };
+    </script>
   </main>
 </body>
 </html>
