@@ -29,11 +29,11 @@
             <div id="tipAmount">
               <p class="title" id="tipTitle">Select Tip %</p>
               <div id="selectTip">
-                <button type="submit">5%</button>
-                <button type="submit">10%</button>
-                <button type="submit">15%</button>
-                <button type="submit">25%</button>
-                <button type="submit">50%</button>
+                <button type="button" value="5">5%</button>
+                <button type="button" value="10">10%</button>
+                <button type="button" value="15">15%</button>
+                <button type="button" value="25">25%</button>
+                <button type="button" value="50">50%</button>
                 <input id="custom_tip" type="text" placeholder="Custom"> 
               </div>
             </div>
@@ -76,16 +76,27 @@
     <script>
     window.onload = function() {
       let billTotal = document.getElementById("billAmount");
-      let numPerson = +document.getElementById("numPeople").value;
-      let tipPer = +document.getElementById("totalTip").value;
-      let totalPer = +document.getElementById("totalPerson").value;
+      let numPerson = document.getElementById("numPeople");
+      let tipPer = document.getElementById("totalTip");
+      let totalPer = document.getElementById("totalPerson");
+      let tipValue = 0
+
       billTotal.addEventListener("input", function() {
         let str = '$' + billTotal.value;
-        if (numPerson.value == '') numPerson = 0;
-        let result = parseInt(billTotal.value) / numPerson;
-        tipPer.textContent = result;
-        totalPer.textContent = str;
+        let x = parseInt(billTotal.value);
+        let y = tipValue / 100;
+        let z = x / y;
+ 
+        tipPer.textContent =  z;
+        totalPer.textContent = "$" + billTotal.value;
       });
+
+      document.getElementById("selectTip").addEventListener("click", function(e) {
+        if(e.target && e.target.nodeName == "BUTTON") {
+          tipPercent = parseInt(e.target.value);
+        }
+      });
+
     };
     </script>
   </main>
