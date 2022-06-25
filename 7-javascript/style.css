@@ -143,12 +143,12 @@ button:focus {
   width: 100%;
 } 
 
-#custom_tip {
+#customTip {
   text-align: right;
   height: 50px;
 }
 
-#custom_tip::placeholder {
+#customTip::placeholder {
   text-align: center;
 }
 

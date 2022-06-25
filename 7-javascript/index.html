@@ -34,7 +34,7 @@
                 <button type="button" value="15">15%</button>
                 <button type="button" value="25">25%</button>
                 <button type="button" value="50">50%</button>
-                <input id="custom_tip" type="text" placeholder="Custom"> 
+                <input id="customTip" type="text" placeholder="Custom"> 
               </div>
             </div>
             <div id="amountPersons">
@@ -92,9 +92,65 @@
           tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
           totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
           document.getElementById("resetButton").style.opacity = "100";
-        }
+        };
       });
 
+      document.getElementById("customTip").addEventListener("click", function(e) {
+        if(e.target.value) {
+          tipPercent = parseInt(e.target.value);
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+        };
+      });
+
+      document.getElementById("customTip").addEventListener("input", function(e) {
+        if(e.target.value) {
+          tipPercent = parseInt(e.target.value);
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+       };
+      });
+      document.getElementById("numPeople").addEventListener("click", function(e) {
+        if(e.target.value) {
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+        };
+      });
+
+      document.getElementById("numPeople").addEventListener("input", function(e) {
+        if(e.target.value) {
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+       };
+      });
     };
     </script>
   </main>
