@@ -84,6 +84,9 @@
         if(e.target && e.target.nodeName == "BUTTON") {
           tipPercent = parseInt(e.target.value);
           let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
           let bill = +billTotal.value;
           let tip = (tipPercent / 100) * bill;
           let perPersonTip = tip / peeps;
@@ -99,6 +102,9 @@
         if(e.target.value) {
           tipPercent = parseInt(e.target.value);
           let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
           let bill = +billTotal.value;
           let tip = (tipPercent / 100) * bill;
           let perPersonTip = tip / peeps;
@@ -114,6 +120,9 @@
         if(e.target.value) {
           tipPercent = parseInt(e.target.value);
           let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
           let bill = +billTotal.value;
           let tip = (tipPercent / 100) * bill;
           let perPersonTip = tip / peeps;
