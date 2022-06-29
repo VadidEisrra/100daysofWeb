@@ -165,13 +165,23 @@ button:focus {
   border: none;
   border-radius: 5px;
   font-family: 'Space Mono', monospace;
+  transition: border 0.1s;
+  cursor: pointer;
 }
 
 #customTip::placeholder {
   text-align: center;
 }
 
+#customTip:hover {
+  border: 2.5px solid #26c0ab;
+}
+
 #customTip:focus {
+  border: 2.5px solid #26c0ab;
+}
+
+#customTip:active {
   border: 2.5px solid #26c0ab;
 }
 
