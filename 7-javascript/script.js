@@ -2,7 +2,7 @@ window.onload = function() {
   let billTotal = document.getElementById("billAmount");
   let tipPer = document.getElementById("totalTip");
   let totalPer = document.getElementById("totalPerson");
-
+  
   document.getElementById("selectTip").addEventListener("click", function(e) {
     if(e.target.value) {
       let tipPercent = +document.querySelector('input[name="percent"]:checked').value;
@@ -22,7 +22,8 @@ window.onload = function() {
   });
 
   document.getElementById("customTip").addEventListener("click", function(e) {
-    if(e.target.value) {
+    if(e.target) {
+      document.querySelector('input[name="percent"]:checked').checked = false;
       tipPercent = parseInt(e.target.value);
       let peeps = +document.getElementById("numPeople").value;
       if (peeps == 0){
