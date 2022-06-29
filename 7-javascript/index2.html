@@ -29,8 +29,8 @@
             <div id="tipAmount">
               <p class="title" id="tipTitle">Select Tip %</p>
               <div id="selectTip">
-                <input type="radio" name="percent" id="5" value="5"></input>
-                <label for="5">5%</label>
+                <input type="radio" name="percent" id="5"></input>
+                <label for="5" value="5">5%</label>
                 <input type="radio" name="percent" id="10" value="10"></input>
                 <label for="10">10%</label>
                 <input type="radio"  name="percent" id="15" value="15"></input>
@@ -86,7 +86,7 @@
       let tipPercent = 0
 
       document.getElementById("selectTip").addEventListener("click", function(e) {
-        if(e.target && e.target.nodeName == "BUTTON") {
+        if(e.target && e.target.nodeName == "LABEL") {
           tipPercent = parseInt(e.target.value);
           let peeps = +document.getElementById("numPeople").value;
           if (peeps == 0){
