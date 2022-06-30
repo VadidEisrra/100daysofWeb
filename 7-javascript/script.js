@@ -4,7 +4,7 @@ window.onload = function() {
   let totalPer = document.getElementById("totalPerson");
   
   document.getElementById("selectTip").addEventListener("click", function(e) {
-    if(e.target.value) {
+    if(e.target.type == 'radio') {
       let tipPercent = +document.querySelector('input[name="percent"]:checked').value;
       let peeps = +document.getElementById("numPeople").value;
       if (peeps == 0){
@@ -23,8 +23,14 @@ window.onload = function() {
 
   document.getElementById("customTip").addEventListener("click", function(e) {
     if(e.target) {
-      document.querySelector('input[name="percent"]:checked').checked = false;
+      radioBtns = document.querySelectorAll('input[name="percent"]');
+      for (i = 0; i < radioBtns.length; i++){
+        radioBtns[i].checked = false;
+      }
       tipPercent = parseInt(e.target.value);
+      if (isNaN(tipPercent)){
+        tipPercent = 0;
+      };
       let peeps = +document.getElementById("numPeople").value;
       if (peeps == 0){
         peeps = 1; 
@@ -58,7 +64,7 @@ window.onload = function() {
     };
   });
   document.getElementById("numPeople").addEventListener("click", function(e) {
-    if(e.target.value) {
+    if(e.target) {
       let tipPercent = +document.querySelector('input[name="percent"]:checked').value;
       let peeps = +document.getElementById("numPeople").value;
       if (peeps == 0){
