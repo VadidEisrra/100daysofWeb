@@ -82,6 +82,7 @@ button:focus {
   height: 48px;
   outline: none;
   width: 100%;
+  cursor: pointer;
 }
 
 .inputs:focus {
