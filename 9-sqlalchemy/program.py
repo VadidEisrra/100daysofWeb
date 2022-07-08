@@ -1,5 +1,7 @@
 import datetime
 import sys
+
+import import_data
 from data import session_factory
 from services import data_service
 from typing import List
@@ -32,9 +34,9 @@ def setup_db():
     global user
     session_factory.global_init('hover_share.sqlite')
     session_factory.create_tables()
-#    3. import data
+    import_data.import_if_empty()
     user = data_service.get_default_user()
-    print('Found default user: {}'.format(user.email))
+
 
 def rent_a_scooter():
     print("********* Rent a scooter ********* ")

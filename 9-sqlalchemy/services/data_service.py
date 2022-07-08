@@ -58,13 +58,15 @@ def park_scooter(scooter_id: int, location_id: int) -> Scooter:
 
 def rented_scooters() -> List[Scooter]:
     session = session_factory.create_session()
-    scooters = []
+
+    scooters = session.query(Scooter).filter(Scooter.id == None).all()
 
     return list(scooters)
 
 
 def parked_scooters() -> List[Scooter]:
     session = session_factory.create_session()
-    scooters = []
+
+    scooters = session.query(Scooter).filter(Scooter.id != None).all()
 
     return list(scooters)
