@@ -11,7 +11,7 @@ class Scooter(SqlAlchemyBase):
     id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     created_date = sa.Column(sa.DateTime, default=datetime.datetime.now)
     vin = sa.Column(sa.String, index=True, unique=True)
-    moddel = sa.Column(sa.String, index=True)
+    model = sa.Column(sa.String, index=True)
     battery_level = sa.Column(sa.Integer, index=True)
 
     # TODO: Relationships

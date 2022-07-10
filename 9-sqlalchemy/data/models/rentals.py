@@ -21,4 +21,4 @@ class Rental(SqlAlchemyBase):
     user = orm.relation('User', back_populates='rentals')
 
     scooter_id = sqlalchemy.Column(sqlalchemy.String, sqlalchemy.ForeignKey('scooters.id'), nullable=False)
-    # scooter = orm.relation('Scooter')
+    scooter = orm.relation('Scooter')
