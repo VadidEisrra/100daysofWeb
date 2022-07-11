@@ -1,23 +1,20 @@
 import datetime
 
-import sqlalchemy
+import sqlalchemy as sa
 from sqlalchemy import orm
 
 from data.sqlalchemybase import SqlAlchemyBase
 
 
 class Location(SqlAlchemyBase):
-    __tablename__ = "locations"
+    __tablename__ = 'locations'
 
-    id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True, autoincrement=True)
+    id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
 
-    created_date = sqlalchemy.Column(sqlalchemy.DateTime,
-    default=datetime.datetime.now, index=True)
+    created_date = sa.Column(sa.DateTime, default=datetime.datetime.now, index=True)
 
-    street = sqlalchemy.Column(sqlalchemy.String)
-    city = sqlalchemy.Column(sqlalchemy.String, index=True)
-    state = sqlalchemy.Column(sqlalchemy.String, index=True)
+    street = sa.Column(sa.String)
+    city = sa.Column(sa.String, index=True)
+    campus = sa.Column(sa.String, index=True)
 
-    max_storage = sqlalchemy.Column(sqlalchemy.Integer, index=True)
-
-    scooters = orm.relation("Scooter", back_populates='location')
+    books = orm.relation('Book', back_populates='location')

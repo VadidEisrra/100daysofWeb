@@ -3,8 +3,8 @@ import random
 from typing import List
 
 from data import session_factory
-from data.models.rentals import Rental
-from data.models.scooters import Scooter
+from data.models.checkout import Checkout
+from data.models.books import Book
 from data.models.users import User
 
 
@@ -25,48 +25,43 @@ def get_default_user():
     return user
 
 
-def book_scooter(scooter: Scooter, user: User, start_date: datetime.datetime) -> Rental:
+def issue_book(book: Book, user: User, start_date: datetime.datetime) -> Checkout:
     session = session_factory.create_session()
 
-    scooter = session.query(Scooter).filter(Scooter.id == scooter.id).one()
-    scooter.location_id = None
-    scooter.battery_level = random.randint(50, 100)
+    book = session.query(Book).filter(Book.id == book.id).one()
+    book.location_id = None
 
-    rental = Rental()
-    rental.scooter_id = scooter.id
-    rental.user_id = user.id
-    rental.start_time = start_date
-    rental.end_time = rental.start_time + datetime.timedelta(days=1)
+    checkout = Checkout()
+    checkout.book_id = book.id
+    checkout.user_id = user.id
+    checkout.start_time = start_date
+    checkout.end_time = checkout.start_time + datetime.timedelta(days=4)
 
-    session.add(rental)
+    session.add(checkout)
     session.commit()
 
-    return rental
 
-
-def park_scooter(scooter_id: int, location_id: int) -> Scooter:
+def return_book(book_id: int, location_id: int) -> Book:
     session = session_factory.create_session()
 
-    scooter = session.query(Scooter).filter(Scooter.id == scooter_id).one()
-    scooter.location_id = location_id
-    scooter.battery_level = 100
+    book = session.query(Book).filter(Book.id == book_id).one()
+    book.location_id = location_id
 
     session.commit()
 
     return scooter
 
 
-def rented_scooters() -> List[Scooter]:
+def issued_books() -> List[Book]:
     session = session_factory.create_session()
 
-    scooters = session.query(Scooter).filter(Scooter.location_id == None).all()
+    books = session.query(Book).filter(Book.location_id == None).all
 
-    return list(scooters)
+    return list(books)
 
-
-def parked_scooters() -> List[Scooter]:
+def available_books() -> List[Book]:
     session = session_factory.create_session()
 
-    scooters = session.query(Scooter).filter(Scooter.location_id != None).all()
+    books = session.query(Book).filter(Book.location_id != None).all
 
-    return list(scooters)
+    return list(books)

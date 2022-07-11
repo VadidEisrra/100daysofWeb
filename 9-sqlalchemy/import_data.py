@@ -3,47 +3,58 @@ import random
 
 from data import session_factory
 from data.models.locations import Location
-from data.models.rentals import Rental
-from data.models.scooters import Scooter
+from data.models.checkout import Checkout
+from data.models.books import Book
 from data.models.users import User
 from services import data_service
 
 
 def import_if_empty():
     __import_locations()
-    __import_scooters()
+    __import_books()
     __import_users()
-    __import_rentals()
+#    __import_checkout()
 
 
-def __import_scooters():
+def __import_books():
     session = session_factory.create_session()
-    if session.query(Scooter).count() > 0:
+    if session.query(Book).count() > 0:
         return
 
-    models = [
-        'Hover-1 1st edition',
-        'Hover-1 Sport 1st edition',
-        'Hover-2 Touring 1st edition',
-        'Hover-2 1st edition',
-        'Hover-2 Sport 1st edition',
-        'Hover-2 Touring 1st edition',
-        'Hover-3 1st edition',
-        'Hover-3 Sport 1st edition',
-        'Hover-3 Touring 1st edition',
+    titles = [
+        'Three Thousand Lenses',
+        'Isles of Meynard',
+        'How To: Everything',
+        'The Fall of Thoroh',
+        'Elephant and Me',
+        'Summit',
+        'Feet Down, Head Up',
+        'Early Settler Wood Working',
+        'C Programming Language',
+        'Cave Diving in Mexico',
     ]
 
-    vin_values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    authors = [
+        'Henry Collins',
+        'Elijah Soumit',
+        'Radjin Cahr',
+        'Michal Dunning',
+        'Crisvh Vishal',
+        'Fally Sields',
+        'Ross Faihrn',
+        'Luz Paz',
+        'Adam Saars',
+        'Leonard pogh',
+    ]
+
     locations = list(session.query(Location).all())
 
-    COUNT = 21
-    for _ in range(0, COUNT):
-        s = Scooter()
-        s.model = random.choice(models)
-        s.battery_level = 100
-        s.vin = ''.join((random.choice(vin_values) for _ in range(0, 18)))
-        s.location = random.choice(locations)
-        session.add(s)
+    for title in titles:
+        b = Book()
+        b.title = title
+        b.author = random.choice(authors)
+        b.location = random.choice(locations)
+        session.add(b)
 
     session.commit()
 
@@ -68,55 +79,50 @@ def __import_locations():
         return
 
     location = Location()
-    location.street = '123 Min St.'
-    location.state = 'OR'
+    location.street = '493 32nd St.'
     location.city = 'Portland'
-    location.max_storage = random.randint(10, 20)
+    location.campus = 'East Campus'
     session.add(location)
 
     location = Location()
-    location.street = '700 Terwilliger Blvd'
-    location.state = 'OR'
+    location.street = '1003 Canoe Blvd.'
     location.city = 'Portland'
-    location.max_storage = random.randint(10, 20)
+    location.campus = 'West Campus'
     session.add(location)
 
     location = Location()
-    location.street = '600 Broadway'
-    location.state = 'OR'
+    location.street = '81 West Filtmore St.'
     location.city = 'Portland'
-    location.max_storage = random.randint(10, 20)
+    location.campus = 'South Campus'
     session.add(location)
 
     session.commit()
 
-
-def __import_rentals():
+def __import_checkout():
     session = session_factory.create_session()
-    if session.query(Rental).count() > 0:
+    if session.query(Checkout).count() > 0:
         return
 
-    scooters = list(session.query(Scooter))
+    books = list(session.query(Book))
     locations = list(session.query(Location))
     user = data_service.get_default_user()
     user2 = session.query(User).filter(User.email == 'user2@talkpython.fm').one()
 
-    for _ in range(1, 5):
-        selected = random.choice(scooters)
-        data_service.book_scooter(
-            scooter=selected,
+    for _ in range(1, 3):
+        selected = random.choice(books)
+        data_service.issue_book(
+            book=selected,
             user=user,
-            start_date=datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 100))
+            start_date=datetime.datetime.now() - datetime.timedelta(days=random.randint(1,100))
         )
-        scooters.remove(selected)
-        data_service.park_scooter(selected.id, random.choice(locations).id)
+        books.remove(selected)
+        data_service.return_book(selected.id, random.choice(locations).id)
 
-    for _ in range(1, 10):
-        selected = random.choice(scooters)
-        data_service.book_scooter(
-            scooter=selected,
+    for _ in range(1, 3):
+        selected = random.choice(books)
+        data_service.issue_book(
+            book=selected,
             user=user2,
             start_date=datetime.datetime.now() - datetime.timedelta(days=random.randint(1, 100))
         )
-        scooters.remove(selected)
-
+        books.remove(selected)
