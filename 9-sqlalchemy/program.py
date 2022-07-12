@@ -45,35 +45,47 @@ def checkout_book():
         return
 
     book = books[chose_it]
+    data_service.issue_book(book, user, datetime.datetime.now())
 
 
 def find_available_books(suppress_header=False):
     if not suppress_header:
         print("********** Available books: ********** ")
 
-    available_books = []
-    # todo show available books
+    available_books = data_service.available_books()
+    for idx, b in enumerate(available_books, start=1):
+        print(f"#{idx}. Title: {b.title}, "
+              f"Author: {b.author} Loc: {b.location.campus} {b.location.street}")
+
     print()
     return available_books
 
 
 def locate_our_books():
     print("********** Current status of books ********** ")
-    checked_out_books = []
-    available_books = []
+    loaned_books = data_service.issued_books()
+    available_books = data_service.available_books()
 
-    print(f"Out with patrons [{len(checked_out_books)} books]:")
-    # todo show books checked out 
+    print(f"Out with patrons [{len(loaned_books)} books]:")
+    for b in loaned_books:
+        print(f" {b.id} Title: {b.title} Author: {b.author}")
 
     print()
 
     print(f"Available [{len(available_books)} books]:")
-    # todo show available books
+    for b in available_books:
+        print(f"Title: {b.title}, Author: {b.author}, "
+              f"Loc: {b.location.campus} {b.location.street}")
 
+    print()
 
 def my_history():
     print("********** Your library history ********** ")
-    # todo show checkout history
+    user_local = data_service.get_default_user()
+    for b in user_local.checkout:
+        print(f" * {b.start_time.date().isoformat()} {b.book.title}")
+
+    print()
 
 
 def exit_app():

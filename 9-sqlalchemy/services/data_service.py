@@ -49,19 +49,19 @@ def return_book(book_id: int, location_id: int) -> Book:
 
     session.commit()
 
-    return scooter
+    return book
 
 
 def issued_books() -> List[Book]:
     session = session_factory.create_session()
 
-    books = session.query(Book).filter(Book.location_id == None).all
+    books = session.query(Book).filter(Book.location_id == None).all()
 
     return list(books)
 
 def available_books() -> List[Book]:
     session = session_factory.create_session()
 
-    books = session.query(Book).filter(Book.location_id != None).all
+    books = session.query(Book).filter(Book.location_id != None).all()
 
     return list(books)

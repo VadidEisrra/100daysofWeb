@@ -13,7 +13,7 @@ def import_if_empty():
     __import_locations()
     __import_books()
     __import_users()
-#    __import_checkout()
+    __import_checkout()
 
 
 def __import_books():
