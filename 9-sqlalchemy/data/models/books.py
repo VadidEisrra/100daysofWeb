@@ -14,7 +14,6 @@ class Book(SqlAlchemyBase):
     title = sa.Column(sa.String, index=True)
     author = sa.Column(sa.String, index=True)
 
-    # todo: relationships
     location_id = sa.Column(sa.Integer,
                             sa.ForeignKey('locations.id'),
                             nullable=True)

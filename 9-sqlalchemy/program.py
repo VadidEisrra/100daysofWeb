@@ -68,7 +68,7 @@ def locate_our_books():
 
     print(f"Out with patrons [{len(loaned_books)} books]:")
     for b in loaned_books:
-        print(f" {b.id} Title: {b.title} Author: {b.author}")
+        print(f" {b.id} Title: {b.title}, Author: {b.author}, Account: {user.name}")
 
     print()
 
