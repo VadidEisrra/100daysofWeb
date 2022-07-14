@@ -1,13 +1,13 @@
 # Library database project
 
-This project is a bit more complex than other things I have worked on. This follows an introduction to SQLAlchemy. Much of the code was written for the example - I modified it for the library angle and tried to understand as much as I could without getting lost.
+blah blah blah this is epic
 
 
 #### High level DB model
 
 **Users** interact with system that keeps track of library books
 
-**Checkout** correlates to user getting book for period of time then returning it, retrieved and returned at particular location
+**Checkout** correlates to a book that is removed from the library and assigned to a user for a period of time, 
 
 **Books** that have a title, author etc
 
@@ -120,41 +120,7 @@ def setup_db():
     import_data.import_if_empty()
     user = data_service.get_default_user()
 ```
-#### Engines and factories
 
-The engine is the starting point for a SQLAlchemy application. It is very fancy; it interprets the underlying DBAPI python module functions as well as specific database behavior.
-
-the sessionmaker class creates a top level Session configuration which can then be used throughout an application without the need to repeat the configurational arguments.
-
-the sessionmaker call creates a factory for us, which we assign to the name Session. This factory, when called, will create a new Session object using the configurational arguments we’ve given the factory.
-
-A typical setup will associate the sessionmaker with an Engine, so that each Session generated will use this Engine to acquire connection resources. This association can be set up using the bind argument.
-
-```python
-def global_init(db_name: str):
-    global __engine, __factory
-
-    if __factory:
-        return
-
-    conn_str = 'sqlite:///' + db_folder.get_full_path(db_name)
-    __engine = sqlalchemy.create_engine(conn_str, echo=False)
-    __factory = sqlalchemy.orm.sessionmaker(bind=__engine)
-```
-#### Creating tables from the model classes
-
-`data/session_factory.py` contains the method that will:
-- import all models defined in `data/__all_models.py`
-- create tables for all classes derived from SqlAlchemyBase
-```python
-def create_tables():
-    if not __engine:
-        raise Exception("You have not called global_init()")
-
-    import data.__all_models
-    from data.sqlalchemybase import SqlAlchemyBase
-    SqlAlchemyBase.metadata.create_all(__engine)
-```
 Let's take a look at `data/session_factory.py`
 ```python
 def global_init(db_name: str):
@@ -185,3 +151,20 @@ def create_session() -> sqlalchemy.orm.Session:
     session.expire_on_commit = False
     return session
 ```
+#### global_init() aka engines and factories
+
+The engine is the starting point for a SQLAlchemy application. It is very fancy; it interprets the underlying DBAPI python module functions as well as several flavor of database behavior.
+
+A typical setup will associate the sessionmaker with an Engine, so that each Session generated will use this Engine to acquire connection resources. This association can be set up using the bind argument.
+
+#### create_tables() from the model classes
+
+
+- import all models defined in `data/__all_models.py`
+- create tables for all classes derived from SqlAlchemyBase using the engine
+
+###### create_all() will issue queries that first check for the existence of each individual table, and if not found will issue the CREATE statements
+
+#### create_session() just db things
+
+#### importing data for an empty database
