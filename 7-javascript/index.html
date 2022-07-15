@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
+<body>
+  <main>
+    <div id="logo">
+      <img src="images/logo.svg">
+    </div>
+    <div id="userInterface">
+      <div id="container">
+        <article id="calculator">
+          <div id="calcBox">
+            <div id="inputAmount">
+              <form class="form">
+              <p class="title">Bill</p>
+              <span class="icon"><img src="images/icon-dollar.svg"></span>
+              <input id="billAmount" type="text" placeholder="0">
+              </form>
+            </div>
+            <div id="tipAmount">
+              <p class="title" id="tipTitle">Select Tip %</p>
+              <div id="selectTip">
+                <button type="button" value="5">5%</button>
+                <button type="button" value="10">10%</button>
+                <button type="button" value="15">15%</button>
+                <button type="button" value="25">25%</button>
+                <button type="button" value="50">50%</button>
+                <input id="customTip" type="text" placeholder="Custom"> 
+              </div>
+            </div>
+            <div id="amountPersons">
+              <form class="form">
+                <p class="title">Number of People</p>
+                <span class="icon"><img src="images/icon-person.svg"></span>
+                <input id="numPeople"type="text" placeholder="0">
+              </form>
+            </div>
+          </div>
+        </article>
+        <article id="displayResult">
+          <div id="displayBox">
+            <div id="displayTotalTip">
+              <div  id="totalText">
+                <p class="displayTitle">Tip Amount</p>
+                <p class="subtitle">/ person</p>
+              </div>
+              <div id="totalNumber">
+                <h1 id="totalTip">$0.00</h1>
+              </div>
+            </div>
+            <div id="displayTotalBill">
+              <div id="totalText">
+                <p class="displayTitle">Total</p>
+                <p class="subtitle">/ person</p>
+              </div>
+              <div id="totalNumber">
+                <h1 id="totalPerson">$0.00</h1>
+              </div>
+            </div>
+            <div id="reset">
+              <button id="resetButton">RESET</button>
+            </div>
+          </div>
+        </article> 
+      </div>
+    </div>
+    <script>
+    window.onload = function() {
+      let billTotal = document.getElementById("billAmount");
+      let tipPer = document.getElementById("totalTip");
+      let totalPer = document.getElementById("totalPerson");
+      let tipPercent = 0
+
+      document.getElementById("selectTip").addEventListener("click", function(e) {
+        if(e.target && e.target.nodeName == "BUTTON") {
+          tipPercent = parseInt(e.target.value);
+          let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+        };
+      });
+
+      document.getElementById("customTip").addEventListener("click", function(e) {
+        if(e.target.value) {
+          tipPercent = parseInt(e.target.value);
+          let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+        };
+      });
+
+      document.getElementById("customTip").addEventListener("input", function(e) {
+        if(e.target.value) {
+          tipPercent = parseInt(e.target.value);
+          let peeps = +document.getElementById("numPeople").value;
+          if (peeps == 0){
+            peeps = 1; 
+          };
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+       };
+      });
+      document.getElementById("numPeople").addEventListener("click", function(e) {
+        if(e.target.value) {
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+        };
+      });
+
+      document.getElementById("numPeople").addEventListener("input", function(e) {
+        if(e.target.value) {
+          let peeps = +document.getElementById("numPeople").value;
+          let bill = +billTotal.value;
+          let tip = (tipPercent / 100) * bill;
+          let perPersonTip = tip / peeps;
+          let perPersonTotal = (bill + tip) / peeps;
+   
+          tipPer.textContent =  "$" + Math.round(perPersonTip * 100) / 100;
+          totalPer.textContent = "$" + Math.round(perPersonTotal * 100) / 100;
+          document.getElementById("resetButton").style.opacity = "100";
+       };
+      });
+    };
+    </script>
+  </main>
+</body>
+</html>

@@ -1,0 +1,356 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: hsl(185, 41%, 84%);
+  font-family: 'Space Mono', monospace;
+  min-height: 100vh;
+  width: 100%;
+}
+
+main {
+}
+
+input {
+  font-size: 24px;
+  font-family: 'Space Mono', monospace;
+  border: none;
+  text-align: right;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  height: 48px;
+  outline: none;
+  width: 100%;
+}
+
+input:focus {
+  border: 2.5px solid #26c0ab;
+}
+
+button {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  width: 150px;
+  height: 49px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Space Mono', monospace;
+}
+
+button:hover {
+  background-color: hsla(172, 100%, 79%, 1);
+  color: hsl(183, 100%, 15%);
+}
+
+button:focus {
+  background: hsl(172, 67%, 45%); 
+  color: hsl(183, 100%, 15%);
+}
+
+.title {
+  color: hsl(186, 14%, 43%);
+  font-size: 16px;
+  text-align: left;
+  font-weight: 700;
+  font-style: bold;
+  margin-bottom: 6px;
+  margin-left: 10px; 	
+}
+
+.icon {
+  position: absolute;
+  padding: 15px;
+}
+
+.displayTitle {
+  color: hsl(0, 0%, 100%);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: bold;
+  
+}
+
+.subtitle{
+  color: hsl(186, 14%, 43%);
+  font-size: 14px;
+  font-weight: 700;
+  font-style: bold;
+  
+}
+
+#logo {
+  width: 87px;
+  margin: auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+#userInterface {
+  height: 825px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 26px 26px 10px 10px;
+}
+
+#container {
+  display: grid;
+  grid-gap: 2em;
+  justify-items: center;
+  grid-template-areas:
+  "calculator"
+  "displayResult";
+}
+
+
+#calculator {
+  grid-area: calculator;
+  height: 425px;
+  background: white;
+  padding: 12px;
+  border-radius: 25px;
+  position: relative;
+}
+
+#calcBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 400px;
+}
+
+#tipTitle{
+  margin-bottom: 16px;
+}
+
+#selectTip {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+} 
+
+#customTip {
+  text-align: right;
+  height: 50px;
+}
+
+#customTip::placeholder {
+  text-align: center;
+}
+
+#displayResult {
+  grid-area: displayResult;
+  height: 425px;
+  background: hsl(183, 100%, 15%);
+  border-radius: 25px;
+  position: relative;
+}
+
+#displayBox {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  height: 275px;
+  width: 330px;
+  background: hsl(183, 100%, 15%);
+  border-radius: 15px;
+  padding-left: 30px;
+  padding-right: 5px;
+}
+
+#totalText,#totalNumber {
+  color: hsl(172, 67%, 45%); 
+  display: inline-block;
+  width: 45%;
+}
+
+#totalText {
+  text-align: left;
+}
+
+#totalNumber {
+  text-align: right;
+  font-size: 22px;
+}
+
+#displayTotalTip {
+  margin-top: 45px;
+}
+
+#displayTotalBill {
+  margin-top: 20px;
+}
+
+#reset {
+  text-align:center;
+}
+
+#resetButton {
+  margin-right: 30px;
+  margin-top: 30px;
+  width: 92%; 
+  color: hsl(183, 100%, 15%); 
+  background-color: hsl(172, 67%, 45%); 
+  opacity: 0.2;
+}
+
+#resetButton:hover {
+  background-color: hsla(172, 100%, 79%, 1);
+  color: hsl(183, 100%, 15%);
+}
+
+#resetButton:focus {
+  background-color: hsl(172, 67%, 45%); 
+  color: hsl(183, 100%, 15%);
+}
+
+@media screen and (min-width: 425px){
+  .title {
+    color: hsl(186, 14%, 43%);
+    font-size: 16px;
+    text-align: left;
+    font-weight: 700;
+    font-style: bold;
+    margin-bottom: 6px;
+  }
+  button {
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    width: 120px;
+    height: 49px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Space Mono', monospace;
+  }
+  #logo {
+    width: 87px;
+    margin: auto;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  #userInterface {
+    height: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 36px;
+  }
+  #selectTip {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+  } 
+  #calcBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 400px;
+    width: 400px;
+  }
+  #calculator {
+    grid-area: calculator;
+    width: 425px;
+    height: 425px;
+    background: white;
+    padding: 12px;
+    border-radius: 25px;
+    position: relative;
+  }
+  #displayBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    height: 330px;
+    width: 330px;
+    padding: unset;
+  }
+  #totalText {
+    text-align: left;
+  }
+  #totalNumber {
+    text-align: right;
+    font-size: 36px;
+  }
+  #totalText,#totalNumber {
+    color: hsl(172, 67%, 45%); 
+    display: inline-block;
+    width: 48%;
+  }
+  #displayTotalTip {
+    margin-top: 0px;
+  }
+  #displayResult {
+    grid-area: displayResult;
+    width: 425px;
+    height: 425px;
+    background: hsl(183, 100%, 15%);
+    border-radius: 25px;
+    position: relative;
+  }
+  #resetButton {
+    margin-right: unset;
+    margin-top: 90px;
+    width: 100%; 
+    color: hsl(183, 100%, 15%); 
+    background-color: hsl(172, 67%, 45%); 
+  }
+}
+
+@media screen and (min-width: 490px){
+   #userInterface {
+     width: 490px;
+     height: 900px;
+     margin: 0 auto;
+     background-color: white;
+     border-radius: 36px;
+   }
+}
+
+@media screen and (min-width: 975px){
+  #logo {
+    width: 87px;
+    margin: auto;
+    padding-top: 145px;
+    padding-bottom: 80px;
+  }
+  #container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    justify-items: center;
+    width: 950px;
+    grid-template-areas:
+    "calculator displayResult";
+  }
+  #userInterface {
+    width: 970px;
+    height: 490px;
+    margin: 0 auto;
+    background-color: white;
+    position:relative;
+    border-radius: 35px;
+    box-shadow: 0px 20px 60px #5a9d9457;
+  }
+}
