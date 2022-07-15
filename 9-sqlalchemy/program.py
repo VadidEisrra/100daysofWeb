@@ -55,7 +55,7 @@ def find_available_books(suppress_header=False):
     available_books = data_service.available_books()
     for idx, b in enumerate(available_books, start=1):
         print(f"#{idx}. Title: {b.title}, "
-              f"Author: {b.author} Loc: {b.location.campus} {b.location.street}")
+              f"Author: {b.author}, Loc: {b.location.campus} {b.location.street}")
 
     print()
     return available_books

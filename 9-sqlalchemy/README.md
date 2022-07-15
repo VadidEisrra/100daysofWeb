@@ -32,6 +32,17 @@ program.py
 ## The app
 `program.py` is a terminal application that loads a sqlite datebase (or imports data if there is none) and allows the user to interact with the data. It looks like this:
 ``` 
+Enter a command, [c]heckout, [a]vailable, [l]ocate, [h]istory, e[X]it: a
+********** Available books: ********** 
+#1. Title: Three Thousand Lenses, Author: Ross Faihrn, Loc: South Campus 81 West Filtmore St.
+#2. Title: How To: Everything, Author: Adam Saars, Loc: South Campus 81 West Filtmore St.
+#3. Title: The Fall of Thoroh, Author: Radjin Cahr, Loc: East Campus 493 32nd St.
+#4. Title: Elephant and Me, Author: Ross Faihrn, Loc: East Campus 493 32nd St.
+#5. Title: Summit, Author: Crisvh Vishal, Loc: West Campus 1003 Canoe Blvd.
+#6. Title: Feet Down, Head Up, Author: Ross Faihrn, Loc: South Campus 81 West Filtmore St.
+#7. Title: C Programming Language, Author: Adam Saars, Loc: East Campus 493 32nd St.
+#8. Title: Cave Diving in Mexico, Author: Henry Collins, Loc: South Campus 81 West Filtmore St.
+
 Enter a command, [c]heckout, [a]vailable, [l]ocate, [h]istory, e[X]it: 
 ```
 The primary function contains actions for each choice. For instance, if the user enters `a` the following function is executed  
@@ -104,7 +115,7 @@ class Book(SqlAlchemyBase):
 
     location = orm.relation('Location')
 ```
-## How 'bout muh data
+## How 'bout muh database connections
 
 The initial action in main function of program.py is call a method to setup our database
 
@@ -121,7 +132,7 @@ def setup_db():
     user = data_service.get_default_user()
 ```
 
-Let's take a look at `data/session_factory.py`
+Let's take a look at the methods available in `data/session_factory.py`
 ```python
 def global_init(db_name: str):
     global __engine, __factory
@@ -153,18 +164,27 @@ def create_session() -> sqlalchemy.orm.Session:
 ```
 #### global_init() aka engines and factories
 
-The engine is the starting point for a SQLAlchemy application. It is very fancy; it interprets the underlying DBAPI python module functions as well as several flavor of database behavior.
+The engine is the starting point for a SQLAlchemy application. It is very fancy; it interprets the underlying DBAPI python module as well as several flavor of database behavior.
 
-A typical setup will associate the sessionmaker with an Engine, so that each Session generated will use this Engine to acquire connection resources. This association can be set up using the bind argument.
+A typical setup will associate the sessionmaker with an Engine, so that each session generated will use this engine to acquire connection resources. This association can be set up using the bind argument.
 
 #### create_tables() from the model classes
 
-
-- import all models defined in `data/__all_models.py`
-- create tables for all classes derived from SqlAlchemyBase using the engine
+In order to create tables, all models defined in `data/__all_models.py` are imported in addition to our SqlAlchemyBase class. The `create_all()` method creates tables for all imported classes that are derived from the base class.
 
 ###### create_all() will issue queries that first check for the existence of each individual table, and if not found will issue the CREATE statements
 
-#### create_session() just db things
+#### create_session() or getting a *handle* on things
 
-#### importing data for an empty database
+We need a handle in order to interact with the database. A session instance, or more precisely an object of type `sqlalchemy.orm.session.Session` provides this. 
+
+We create session objects each time we call the `sessionmaker()`, which in this case is defined as `__factory` - the session factory method bound to the engine object created in `global_init()`.
+
+The session object is born!
+```python
+session : Session = __factory()
+```
+
+## importing data to an EmptyDB TM
+
+say we've done some things

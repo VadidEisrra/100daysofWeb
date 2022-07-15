@@ -1,5 +1,5 @@
 import sqlalchemy
-import sqlalchemy.orm
+from sqlalchemy.orm import Session
 
 from db import db_folder
 
