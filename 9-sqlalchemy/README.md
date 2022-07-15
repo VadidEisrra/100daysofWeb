@@ -45,7 +45,8 @@ Enter a command, [c]heckout, [a]vailable, [l]ocate, [h]istory, e[X]it: a
 
 Enter a command, [c]heckout, [a]vailable, [l]ocate, [h]istory, e[X]it: 
 ```
-The primary function contains actions for each choice. For instance, if the user enters `a` the following function is executed.
+The primary function contains actions for each choice. For instance, if the user enters `a` the following function is executed.  
+
 `program.py`
 ```python
 def find_available_books(suppress_header=False):
@@ -60,7 +61,8 @@ def find_available_books(suppress_header=False):
     print()
     return available_books
 ```
-The functionality to make the database queries is not stored in the main program. They are written in `services/data_service.py`. This helps the code to be modular - if the database changes the queries can be re-written without touching the main program. Here is the the function to retrieve available books from the data service library.
+The functionality to make the database queries is not stored in the main program. They are written in `services/data_service.py`. This helps the code to be modular - if the database changes the queries can be re-written without touching the main program. Here is the the function to retrieve available books from the data service library.  
+
 `data_service.py`
 ```python
 def available_books() -> List[Book]:
@@ -91,7 +93,9 @@ Our model classes derive from a common base class `SqlAlchemyBase`. This base cl
 
 Within the Book class we define the table to be mapped to, and names and datatypes of columns in it. The Table object is created according to the specifications, and is associated with the class using the functionality derived from the `SqlAlchemyBase`.
 
-Modeling a book in the database:
+Modeling a book in the database:  
+
+`models/books.py`
 ```python
 import datetime
 
@@ -118,8 +122,9 @@ class Book(SqlAlchemyBase):
 ## How 'bout muh database
 
 ### Setting up the DB
-The initial action in main function of program.py is call a method to setup our database
+The initial action in main function of program.py is call a method to setup our database  
 
+`program.py`
 ```python
 def main():
     setup_db()
@@ -132,8 +137,10 @@ def setup_db():
     import_data.import_if_empty()
     user = data_service.get_default_user()
 ```
-### Connecting to that DB
-Let's take a look at the methods available in `data/session_factory.py`
+### Initializing and connecting to that DB
+Let's take a look at the methods available in `data/session_factory.py`  
+
+`data/session_factory.py`
 ```python
 def global_init(db_name: str):
     global __engine, __factory
@@ -188,7 +195,9 @@ session : Session = __factory()
 
 ### Importing data to an EmptyDB TM
 
-Say we've done some things but there is no data in our tables! Not to worry. Recall our `setup_db()` function in program.py. After initializing the database and creating tables we run a method imported from `import_data.py`. The specific method we call from this file is `import_if_empty()`
+Say we've done some things but there is no data in our tables! Not to worry. Recall our `setup_db()` function in program.py. After initializing the database and creating tables we run a method imported from `import_data.py`. The specific method we call from this file is `import_if_empty()`  
+
+`program.py`
 ```python
 def main():
     setup_db()
@@ -202,7 +211,9 @@ def setup_db():
     user = data_service.get_default_user()
 ```
 
-Here is that method from `import_data.py`
+Here is that method from `import_data.py`  
+
+`import_data.py`
 ```python
 def import_if_empty():
     __import_locations()
@@ -210,7 +221,9 @@ def import_if_empty():
     __import_users()
     __import_checkout()
 ```
-Taking a look at first function `__import_locations()` we can see it queries the database and if there are zero locations in the table we generate some values and add them to the database. It's similar for the other tables.
+Taking a look at first function `__import_locations()` we can see it queries the database and if there are zero locations in the table we generate some values and add them to the database. It's similar for the other tables.  
+
+`import_data.py`
 ```python
 def __import_locations():
     session = session_factory.create_session()
@@ -240,7 +253,7 @@ def __import_locations():
 ## Where to from here
 
 There is obviously more going on here than I've covered in this short introduction. Create a virtual environment, activate it, install requirements and run `program.py`!
-```python
+```
 Enter a command, [c]heckout, [a]vailable, [l]ocate, [h]istory, e[X]it: c
 ********** Checkout a book ********** 
 #1. Title: Three Thousand Lenses, Author: Leonard pogh, Loc: East Campus 493 32nd St.
