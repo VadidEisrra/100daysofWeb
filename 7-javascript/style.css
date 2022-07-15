@@ -19,26 +19,16 @@ body {
 main {
 }
 
-input {
-  font-size: 24px;
-  font-family: 'Space Mono', monospace;
-  border: none;
-  text-align: right;
-  background-color: hsl(189, 41%, 97%);
+input[type=radio] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background: hsl(172, 67%, 45%); 
   color: hsl(183, 100%, 15%);
-  font-weight: 700;
-  border-radius: 5px;
-  margin-bottom: 40px;
-  height: 48px;
-  outline: none;
-  width: 100%;
 }
 
-input:focus {
-  border: 2.5px solid #26c0ab;
-}
-
-button {
+button, label {
   background-color: hsl(183, 100%, 15%);
   color: white;
   font-size: 24px;
@@ -48,9 +38,13 @@ button {
   border: none;
   border-radius: 5px;
   font-family: 'Space Mono', monospace;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 7px;
+  transition: background 0.1s;
 }
 
-button:hover {
+label:hover {
   background-color: hsla(172, 100%, 79%, 1);
   color: hsl(183, 100%, 15%);
 }
@@ -73,6 +67,26 @@ button:focus {
 .icon {
   position: absolute;
   padding: 15px;
+}
+
+.inputs {
+  font-size: 24px;
+  font-family: 'Space Mono', monospace;
+  border: none;
+  text-align: right;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  height: 48px;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.inputs:focus {
+  border: 2.5px solid #26c0ab;
 }
 
 .displayTitle {
@@ -146,10 +160,30 @@ button:focus {
 #customTip {
   text-align: right;
   height: 50px;
+  font-size: 24px;
+  font-weight: 700;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Space Mono', monospace;
+  transition: border 0.1s;
+  cursor: pointer;
 }
 
 #customTip::placeholder {
   text-align: center;
+}
+
+#customTip:hover {
+  border: 2.5px solid #26c0ab;
+}
+
+#customTip:focus {
+  border: 2.5px solid #26c0ab;
+}
+
+#customTip:active {
+  border: 2.5px solid #26c0ab;
 }
 
 #displayResult {
@@ -206,6 +240,7 @@ button:focus {
   width: 92%; 
   color: hsl(183, 100%, 15%); 
   background-color: hsl(172, 67%, 45%); 
+  padding-top: 0;
   opacity: 0.2;
 }
 
@@ -228,13 +263,23 @@ button:focus {
     font-style: bold;
     margin-bottom: 6px;
   }
-  button {
+  button,label {
     background-color: hsl(183, 100%, 15%);
     color: white;
     font-size: 24px;
     font-weight: 700;
     width: 120px;
     height: 49px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Space Mono', monospace;
+  }
+  #customTip {
+    text-align: right;
+    height: 50px;
+    font-size: 24px;
+    font-weight: 700;
+    width: 120px;
     border: none;
     border-radius: 5px;
     font-family: 'Space Mono', monospace;
@@ -354,3 +399,4 @@ button:focus {
     box-shadow: 0px 20px 60px #5a9d9457;
   }
 }
+
