@@ -13,20 +13,20 @@ from bookdb.data.models.books import Book
 def load_starter_data():
     print("Loading starter data...")
     session = DbSession.create_session()
-    if session.query(Book).counter() > 0:
+    if session.query(Book).count() > 0:
         session.close()
         print("Data already loaded...")
         return
 
     session.expire_on_commit = False
 
-    add_books()
+    add_books(session)
 
     session.commit()
     session.close()
 
 
-def add_books():
+def add_books(session: Session):
     data_file = os.path.join(DbSession.db_folder, 'MOCK_BOOKS.json')
     with open(data_file, 'r', encoding='utf-8') as fin:
         data = json.load(fin)
@@ -38,3 +38,4 @@ def add_books():
         book.title = b.get('book_title')
         book.author = b.get('book_author')
         book.purchased = b.get('purchased')
+        session.add(book)

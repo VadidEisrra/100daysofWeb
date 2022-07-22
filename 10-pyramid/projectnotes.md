@@ -1,6 +1,6 @@
-# Pyramid web framework
+# Pyramid
 
-[Pyramid](https://trypyramid.com/) is we web framework for python, let's build something with it!
+[Pyramid](https://trypyramid.com/) is web framework for python, let's build something with it!
 
 ## Project setup
 1. Install [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/installation.html)  
@@ -71,4 +71,66 @@ Bit of organization from defaults. `mytemplate.py` is renamed to `default.py` pl
     ├── __init__.py
     ├── default.py
     └── notfound.py
+```
+## Database
+#### Building the SQLAlchemy model
+```
+bookdb/bookdb
+.
+├── __init__.py
+├── bin
+│   └── load_base_data.py
+├── data
+│   ├── __all_models.py
+│   ├── __init__.py
+│   ├── db_session.py
+│   ├── modelbase.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   └── books.py
+│   └── repository.py
+├── db
+│   ├── MOCK_BOOKS.json
+│   └── book_db.sqlite
+```
+
+- `db/MOCK_BOOKS.json` - generated data from [mockaroo](https://www.mockaroo.com/)  
+- `/data/models/books.py` - SQLAlchemy model for the books
+- `data/db_session.py` - methods to initialize and create sessions to the sqlite db
+- `data/repository.py` - methods we will use to run specific queries against the db
+- `bin/load_base_data.py` - methods can be called to build the db if it doesn't exist on startup
+
+#### Putting it all together
+The function to initialize the database is added to the main method of the pyramid project's `__init__.py`  
+`bookdb/bookdb/__init__.py`
+```python
+import os
+
+from bookdb.bin import load_base_data
+from bookdb.data.db_session import DbSession
+
+from pyramid.config import Configurator
+
+
+def main(global_config, **settings):
+    """ This function returns a Pyramid WSGI application.
+    """
+    with Configurator(settings=settings) as config:
+        config.include('pyramid_chameleon')
+        config.include('.routes')
+        config.scan()
+
+    init_db() # Hello!
+
+    return config.make_wsgi_app()
+
+
+def init_db():
+    db_file = os.path.join(
+        os.path.abspath(os.path.dirname(__file__)),
+        'db',
+        'book_db.sqlite'
+    )   
+    DbSession.global_init(db_file)
+    load_base_data.load_starter_data()
 ```

@@ -19,7 +19,7 @@ class DbSession:
         if DbSession.factory:
             return
 
-        if not db_file or not db_file.strip()
+        if not db_file or not db_file.strip():
             raise Exception("You must specify a data file.")
 
         DbSession.db_folder = os.path.dirname(db_file)
