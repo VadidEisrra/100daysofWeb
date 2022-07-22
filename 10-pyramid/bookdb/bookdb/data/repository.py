@@ -5,10 +5,22 @@ from bookdb.data.db_session import DbSession
 from bookdb.data.models.books import Book
 
 
-def get_books() -> List[Book]:
+def get_purchased_books() -> List[Book]:
     session = DbSession.create_session()
     try:
-        return session.query(Book).all()
+        return session.query(Book) \
+            .filter(Book.purchased == 1) \
+            .all()
+    finally:
+        session.close()
+
+
+def get_non_purchased_books() -> List[Book]:
+    session = DbSession.create_session()
+    try:
+        return session.query(Book) \
+            .filter(Book.purchased == 0) \
+            .all()
     finally:
         session.close()
 

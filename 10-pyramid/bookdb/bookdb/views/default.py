@@ -6,8 +6,10 @@ from bookdb.data import repository
 
 @view_config(route_name='home', renderer='../templates/home/default.pt')
 def home(_: Request):
-    books = repository.get_books()
+    purchased_books = repository.get_purchased_books()
+    non_purchased_books = repository.get_non_purchased_books()
 
     return {'project': 'Book Database',
-            'books': books
+            'purchased_books': purchased_books,
+            'non_purchased_books': non_purchased_books
     }

@@ -2,16 +2,25 @@
     <div metal:fill-slot="content">
 
         <div class="content">
-            <h1><span class="font-semi-bold">Book</span> <span class="smaller">database</span></h1>
-            <p class="lead">Welcome to <span
-            class="font-normal">${project}</span> there are currently </p>
+            <h1>Book Database</h1>
 
-            <p>Your books</p>
+          <div>
+            <h2>Available</h2>
             <ol>
-                <li tal:repeat="i books">
+                <li tal:repeat="i purchased_books">
                   ${i.title} - ${i.author}
                 </li>
             </ol>
+          </div>
+
+          <div>
+            <h2>Yet to purchase</h2>
+            <ol>
+                <li tal:repeat="i non_purchased_books">
+                  ${i.title} - ${i.author}
+                </li>
+            </ol>
+          </div>
 
         </div>
 
