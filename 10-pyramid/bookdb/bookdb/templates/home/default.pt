@@ -1,0 +1,67 @@
+<div metal:use-macro="load: ../shared/layout.pt">
+    <div metal:fill-slot="content">
+ 
+        <div id="hero">
+            <h1><span class="font-semi-bold">Book</span> <span class="smaller">database</span></h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <div class="content">
+                        <p class="lead">Hi <span class="font-normal">visitor</span>.
+                            Welcome to <span class="font-normal">Book Tracker</span>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <h2>Yet to purchase</h2>
+                </div>
+            </div>
+
+            <div class="row grid-entry">
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-2"><strong>Title</strong></div>
+                <div class="col-md-2"><strong>Author</strong></div>
+                <div class="col-md-6 filler"></div>
+            </div>
+            <div class="row grid-entry" tal:repeat="b non_purchased_books">
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-2">${b.title}</div>
+                <div class="col-md-2">${b.author}</div>
+                <div class="col-md-2 values">
+                  <form action="" method="POST">
+                    <button type="submit" value="${b.id}" name="book_id" class="btn btn-success btn-sm">Bought it!</button>
+                  </form>
+                </div>
+                <div class="col-md-4 filler"></div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <h2>Purchased books</h2>
+                </div>
+            </div>
+            <div class="row grid-entry">
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-2"><strong>Title</strong></div>
+                <div class="col-md-2"><strong>Author</strong></div>
+                <div class="col-md-6 filler"></div>
+            </div>
+            <div class="row grid-entry" tal:repeat="b purchased_books">
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-2 amount">${b.title}</div>
+                <div class="col-md-2 amount">${b.author}</div>
+                <div class="col-md-6 filler"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
