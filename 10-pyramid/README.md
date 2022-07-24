@@ -8,7 +8,7 @@ The project is a super basic super small book database - a list of books that ha
 
 ### Screenshot
 
-![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/10-Pyramid.png)
+![](https://github.com/VadidEisrra/100daysofWeb/blob/main/images/10-pyramid.png)
 
 
 ## My process
