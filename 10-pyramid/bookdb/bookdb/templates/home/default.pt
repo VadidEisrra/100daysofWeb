@@ -35,7 +35,9 @@
                 <div class="col-md-2">${b.title}</div>
                 <div class="col-md-2">${b.author}</div>
                 <div class="col-md-2 values">
-                    <a href="" class="btn btn-success btn-sm">Bought it!</a>
+                  <form action="" method="POST">
+                    <button type="submit" value="${b.id}" name="book_id" class="btn btn-success btn-sm">Bought it!</button>
+                  </form>
                 </div>
                 <div class="col-md-4 filler"></div>
             </div>

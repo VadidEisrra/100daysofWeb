@@ -36,11 +36,6 @@
             <div metal:define-slot="content">No content</div>
           </div>
         </div>
-        <div class="row">
-          <div class="copyright">
-            Copyright &copy; A Project
-          </div>
-        </div>
       </div>
     </div>
 

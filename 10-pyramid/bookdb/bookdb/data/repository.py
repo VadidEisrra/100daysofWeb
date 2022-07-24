@@ -25,11 +25,11 @@ def get_non_purchased_books() -> List[Book]:
         session.close()
 
 
-def get_book_by_id(book_id: int) -> Optional[Book]:
+def mark_book_purchased(book_id: int) -> Optional[Book]:
     session = DbSession.create_session()
     try:
-        return session.query(Book) \
-        .filter(Book.id == book_id) \
-        .first()
+        session.query(Book).filter(Book.id == book_id) \
+        .update({'purchased': 1})
     finally:
+        session.commit()
         session.close()
