@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Highlighter from "react-highlight-words";
 
 const axios = require('axios')
 
@@ -12,11 +13,23 @@ function Tip(props) {
     return(
       <div className="tip">
         <p>{props.tip}
+          <Highlighter
+           highlightClassName="highlight"
+           searchWords={[props.filterStr]}
+           autoEscape={true}
+           textToHighlight={props.tip || ''}
+          />
         { props.link &&
           <span> (<a href={props.link} target="_blank">source</a>)</span>
         }
         </p>
         <pre>{props.code}</pre>
+          <Highlighter
+           highlightClassName="highlight"
+           searchWords={[props.filterStr]}
+           autoEscape={true}
+           textToHighlight={props.code || ''}
+          />
         { props.share_link &&
         <p>
           <a href={props.share_link} target="_blank">
@@ -41,7 +54,7 @@ class App extends Component {
     this.filterTips= this.filterTips.bind(this);
   }
 
-  componentDidAmount(){
+  componentDidMount(){
     // call api using axios
     axios.get(TIPS_ENDPOINT)
     .then(response => {
@@ -57,11 +70,23 @@ class App extends Component {
 
   onFilterChange(event){
     // filter orgTips into showTips
-    console.log('onFilterChange called');
+    const filterStr = event.target.value? event.target.value.toLowerCase(): ''
+    this.setState({
+      filterStr: filterStr,
+      showTips: this.filterTips(filterStr)
+    })
   }
 
   filterTips = (filterStr) => {
     // helper for aonFilterChange
+    let tips = []
+    for(const tip of this.state.orgTips){
+      if(tip.tip && tip.tip.toLowerCase().includes(filterStr) ||
+         tip.code && tip.code.toLowerCase().includes(filterStr)){
+       tips.push(tip);
+      }
+    }
+    return tips;
   }
 
   render() {
