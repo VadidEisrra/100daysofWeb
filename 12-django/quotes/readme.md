@@ -34,7 +34,7 @@ Add the values to `venv/bin/activate` script so they are available in the virtua
 export SECRET_KEY=$SECRET_KEY
 export DEBUG=True
 ```
-Add our app `quotes` to the list of installed quotes in `mysite/settings.py`
+Add our app `quotes` to the list of installed apps in `mysite/settings.py`
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -263,3 +263,99 @@ To remove a quote, assign a variable from the filter and delete it
 2
 
 ```
+## URL Mapping
+
+Let's set up a URL for each CRUD function
+
+For instance, our third path is  mapped to the  view `base url + /new` which calls the function `quote_new` in views.py. The name specified can be used to call the url in templates or other python code in Django
+
+In addition we specify a namespace for the URL patterns using `app_name` which ties the patterns to the quotes app  
+`quotes/urls.py`
+```python
+from django.urls import path
+
+from . import views
+
+app_name = 'quotes'
+urlpatterns = [ 
+    path('', views.quote_list, name='quote_list'),
+    path('<int:pk>', views.quote_detail, name='quote_detail'),
+    path('new', views.quote_new, name='quote_new'),
+    path('edit/<int:pk>', views.quote_list, name='quote_edit'),
+    path('delete/<int:pk>', views.quote_list, name='quote_delete'),
+]
+```
+## Model forms
+
+In our app we will have forms that will allow people to submit quotes to the site. We can simplify that process by creating form based on our `quote` class model
+
+Define a `QuoteForm` class which inherits from `ModelForm`. We use a meta class within `QuoteForm` that refernces the `Quote` model and defines the fields of the form
+
+`quotes/forms.py`
+
+```python
+from django.forms import ModelForm
+
+from .models import Quote
+
+
+class QuoteForm(ModelForm):
+    class Meta:
+        model = Quote
+        fields = ['quote', 'author', 'source', 'cover']
+```
+
+## Views
+
+## Templates
+
+#### Static files and base template
+
+Our quotes app will inherit static directory containing an image and css in addition to a base template  in the mysite project folder
+
+Create the following directories and files  
+`mysite/static/css/style.css`  
+`mysite/static/img/favicon.ico`  
+`mysite/templates/base.html`
+
+By default the static directory will not be detected. In `mysite/settings.py` we need to define a path for the project root and use that to specify the location of our static file directory
+
+```python
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_URL = 'static/'
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATICFILES_DIRS = ( 
+    os.path.join(PROJECT_ROOT, 'static'),
+)
+```
+#### Creating child templates for the views
+
+Our base template in `mysite/templates` is located by Django as we have it defined in `mysite/settings.py` under `DIRS`
+
+What about our apps? Recall quotes is our application created within the `mysite` project. Django can discover the templates dynamically for our apps when `APP_DIRS` value is set to true  
+
+`mysite/settings.py`
+```python
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'mysite/templates')],
+        'APP_DIRS': True,
+		...
+    },
+]
+```
+With this setting in place, we specify templates in our quotes app folder like this. It's a bit redundant but alas, Django.
+```
+quotes
+...
+├── templates
+│   └── quotes
+│       └── quote_list.html
+...
+```
+
