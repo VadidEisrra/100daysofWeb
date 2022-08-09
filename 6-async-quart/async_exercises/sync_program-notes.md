@@ -53,7 +53,8 @@ def generate_data(num: int, data: list):
 
 - Given a number x and list containing generated data
 - Iterate over list x times calculating delta between generation and processing of a data unit
-- Use time.sleep() to simulate waiting for some process (web request, db call etc)
+- Use time.sleep() to simulate waiting for some process (web request, db call etc)  
+
 pseudocode:
 ```
 process_data(input_a_number, and_a_list):
